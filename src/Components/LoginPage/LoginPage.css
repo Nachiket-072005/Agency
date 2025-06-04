@@ -1,0 +1,172 @@
+/* Container for the whole login/register page */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0f4f8, #e2ecf3);
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Main form */
+.login-form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Logo and heading */
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.login-header h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+
+/* Input labels and fields */
+.login-form label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Remember me and Forgot link */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.forgot-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* Submit button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Error text */
+.error-msg {
+  color: red;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Footer section */
+.login-footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #666;
+  padding: 0 10px;
+}
+
+.footer-links {
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-links span {
+  color: #888;
+}
+
+/* -------------------- Responsive Breakpoints -------------------- */
+
+/* Small devices (phones, <600px) */
+@media (max-width: 600px) {
+  .login-form {
+    padding: 25px 20px;
+  }
+
+  .login-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .login-header h2 {
+    font-size: 20px;
+  }
+
+  .remember-forgot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* Medium devices (tablets, <992px) */
+@media (max-width: 992px) {
+  .login-form {
+    padding: 30px 25px;
+  }
+
+  .login-header h2 {
+    font-size: 22px;
+  }
+}

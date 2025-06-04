@@ -1,0 +1,130 @@
+/* General navbar styling with curve */
+.navbar {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  width: 94%;
+  max-width: 1500px;
+  box-shadow: 0 0 15px rgba(255, 216, 0);
+  position: fixed;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  font-size: 1.09rem;
+}
+
+/* Make container a flex container and align items */
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem; /* Optional spacing */
+  padding: 0; /* Remove any default padding */
+  margin: 0;  /* Remove any default margin */
+}
+
+/* Brand logo and text aligned */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0; /* Remove extra margin */
+}
+
+.navbar-brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.brand-text {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: white;
+}
+
+/* Navbar toggler styling */
+.navbar-toggler {
+  padding: 0.25rem 0.5rem; /* smaller padding */
+  width: auto;             /* auto width */
+  border: none;            /* remove border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;               /* remove default margin */
+}
+
+.navbar-toggler-icon {
+  width: 24px;  /* control icon size */
+  height: 24px;
+}
+
+/* Align nav items with icons and text */
+.navbar-nav .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+}
+
+.navbar-nav .nav-item .nav-link img {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.nav-text {
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+}
+
+/* Dropdown items styling */
+.dropdown-menu {
+  background-color: rgb(102, 67, 39);
+}
+
+.dropdown-menu .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  color: black;
+}
+
+.dropdown-menu .nav-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Hover effects */
+.nav-item .nav-link:hover,
+.dropdown-menu .nav-link:hover {
+  background-color: #0f77df;
+  color: white;
+  transition: 0.3s;
+}
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .navbar-nav .nav-item .nav-link {
+    padding: 8px 0;
+  }
+
+  .dropdown-menu .nav-link {
+    padding: 8px 16px;
+  }
+
+  .navbar-brand img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-text {
+    font-size: 1.1rem;
+  }
+}
