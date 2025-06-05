@@ -133,14 +133,38 @@ form {
 }
 
 /* Package List Table */
-.package-table input,
-.package-table textarea {
+.package-table {
   width: 100%;
-  padding: 6px 8px;
-  font-size: 14px;
-  box-sizing: border-box;
-  border: 1.5px solid #ccc;
-  border-radius: 5px;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+.package-table th,
+.package-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e1e1e1;
+  overflow-wrap: break-word;
+}
+
+/* Responsive for small screens */
+@media (max-width: 800px) {
+  .package-table thead {
+    display: none; /* hide table headers */
+  }
+
+  .package-table,
+  .package-table tbody,
+  .package-table tr,
+  .package-table td {
+    display: block;
+    width: 100%;
+  }
+  .package-table td {
+  vertical-align: middle;
 }
 
 .package-table textarea {
@@ -148,47 +172,52 @@ form {
   min-height: 40px;
 }
 
-.package-table {
+
+  .package-table tr {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background: #fff;
+    padding: 15px;
+  }
+
+  .package-table td {
+    padding-left: 50%;
+    position: relative;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .package-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .package-table input[type="text"],
+.package-table input[type="number"],
+.package-table textarea,
+.package-table select {
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.package-table th,
-.package-table td {
-  padding: 12px 18px;
-  text-align: left;
-  border-bottom: 1px solid #e1e1e1;
+  /* Show the header label before each cell */
+  .package-table td::before {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: 600;
+    color: #2a7ae2;
+    content: attr(data-label);
+  }
 }
 
-.package-table th {
-  background-color: #2a7ae2;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s;
-}
-
-.package-table th:hover {
-  background-color: #1f5bb5;
-}
-
-/* Sorting arrows */
-.package-table th.sorted-asc::after {
-  content: " ▲";
-  font-size: 12px;
-}
-
-.package-table th.sorted-desc::after {
-  content: " ▼";
-  font-size: 12px;
-}
-
-/* Table rows hover effect */
-.package-table tbody tr:hover {
-  background-color: #f0f7ff;
-}
 
 /* Action buttons in table */
 .action-btn {

@@ -181,39 +181,41 @@ export default function PackageList({
             }
 
             // Normal display row
-            return (
-              <tr key={index}>
-                <td>{pkg.title}</td>
-                <td>{pkg.price.toFixed(2)}</td>
-                <td>{pkg.duration}</td>
-                <td>{pkg.description}</td>
-                <td>{pkg.type}</td>
-                <td>
-                  <button
-                    className="action-btn edit"
-                    onClick={() => startEdit(index)}
-                    title="Edit Package"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="action-btn delete"
-                    onClick={() => {
-                      if (
-                        window.confirm(
-                          `Are you sure you want to delete "${pkg.title}"?`
-                        )
-                      ) {
-                        onDelete(index);
-                      }
-                    }}
-                    title="Delete Package"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
+          // Normal display row
+return (
+  <tr key={index}>
+    <td data-label="Title">{pkg.title}</td>
+    <td data-label="Price (₹)">{pkg.price.toFixed(2)}</td>
+    <td data-label="Duration">{pkg.duration}</td>
+    <td data-label="Description">{pkg.description}</td>
+    <td data-label="Type">{pkg.type}</td>
+    <td data-label="Actions">
+      <button
+        className="action-btn edit"
+        onClick={() => startEdit(index)}
+        title="Edit Package"
+      >
+        Edit
+      </button>
+      <button
+        className="action-btn delete"
+        onClick={() => {
+          if (
+            window.confirm(
+              `Are you sure you want to delete "${pkg.title}"?`
+            )
+          ) {
+            onDelete(index);
+          }
+        }}
+        title="Delete Package"
+      >
+        Delete
+      </button>
+    </td>
+  </tr>
+);
+
           })}
         </tbody>
       </table>
