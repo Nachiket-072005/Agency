@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
-import { Link } from 'react-router-dom';
-import logo from '../../logo.jpeg';
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../../logo.jpeg'; // make sure logo path is correct
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +23,8 @@ export default function LoginPage() {
       return;
     }
 
-    alert(`Logging in with Email: ${email}, Remember: ${remember}`);
+    // Fake login - redirect to dashboard
+    navigate('/dashboard');
   };
 
   return (

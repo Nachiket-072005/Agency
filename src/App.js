@@ -6,6 +6,7 @@ import './App.css';
 // import Footer from "./Components/Footer/Footer";
 import LoginPage from './Components/LoginPage/LoginPage';
 import RegisterPage from './Components/LoginPage/Register'; // make sure this exists
+import DashboardPage from './Components/Dashboard/DashboardPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/dashboard" element={<DashboardPage/>}/>
           {/* Add other routes here */}
         </Routes>
 
