@@ -1,94 +1,144 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './LoginPage.css';
-import logo from '../../logo.jpeg';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./LoginPage.css";
+import "./Register.css";
+import logo from "../../logo.jpeg";
 
 export default function RegisterPage() {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    agencyName: "",
+    address: "",
+    gstNo: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+    agencyImage: null,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === "agencyImage") {
+      setFormData({ ...formData, agencyImage: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
-
-    if (!fullName.trim()) {
-      setError('Full name is required.');
-      return;
-    }
-    if (!email) {
-      setError('Email is required.');
-      return;
-    }
-    if (!password) {
-      setError('Password is required.');
-      return;
-    }
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
       return;
     }
 
-    alert(`Registered: ${fullName}, Email: ${email}`);
+    // Handle form submission (e.g., send to API)
+    console.log("Submitted Data:", formData);
   };
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <div className="login-header">
-          <img src={logo} alt="Agency Logo" className="login-logo" />
-          <h2>Create Your Account</h2>
+      <form onSubmit={handleSubmit}>
+        <header className="login-header">
+          <img src={logo} alt="Logo" className="logo" width={50} />
+          <h1>Agency Registration</h1>
+        </header>
+        <div className="form-group">
+          <div className="form-group">
+            <label htmlFor="agencyName">Agency Name: </label>
+            <input
+              type="text"
+              id="agencyName"
+              placeholder="Enter your agency name"
+              name="agencyName"
+              value={formData.agencyName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <label htmlFor="address">Address : </label>
+          <textarea
+            name="address"
+            id="address"
+            placeholder="Enter your agency address"
+            value={formData.address}
+            onChange={handleChange}
+            rows="4"
+            required
+          ></textarea>
         </div>
 
-        {error && <p className="error-msg">{error}</p>}
+        <div className="form-group">
+          <label htmlFor="gstNo">GST No.: </label>
+          <input
+            type="text"
+            id="gstNo"
+            placeholder="Enter your GST number"
+            name="gstNo"
+            value={formData.gstNo}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <label htmlFor="fullName">Full Name</label>
-        <input
-          id="fullName"
-          type="text"
-          placeholder="Your full name"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-          required
-        />
+        <div className="form-group">
+          <label htmlFor="phNo">Phone Number</label>
+          <input
+            type="tel"
+            id="phNo"
+            placeholder="Enter your phone number"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="you@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <div className="form-group">
+          <label htmlFor="image">Agency Image</label>
+          <input
+            type="file"
+            id="image"
+            name="agencyImage"
+            accept="image/*"
+            onChange={handleChange}
+          />
+        </div>
 
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="Create a password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="form-group">
+          <label htmlFor="pass">Password</label>
+          <input
+            type="password"
+            id="pass"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <input
-          id="confirmPassword"
-          type="password"
-          placeholder="Confirm your password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
+        <div className="form-group">
+          <label htmlFor="conpass">Confirm Password</label>
+          <input
+            type="password"
+            id="conpass"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <button type="submit" className="login-btn">Register</button>
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
 
-        <p style={{ textAlign: 'center', marginTop: '20px' }}>
-          Already have an account?{' '}
-          <Link to="/login" style={{ color: '#007bff', textDecoration: 'none' }}>
+        <p style={{ textAlign: "center", marginTop: "20px" }}>
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            style={{ color: "#007bff", textDecoration: "none" }}
+          >
             Login here
           </Link>
         </p>
