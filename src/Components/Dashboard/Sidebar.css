@@ -1,0 +1,138 @@
+/* ========== Sidebar Layout ========== */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #673c25;
+  color: white;
+  height: 100vh;
+  padding: 20px 10px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.sidebar.expanded {
+  width: 250px;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+/* Profile Section */
+.profile-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  display: block;
+  object-fit: cover;
+}
+
+.profile-section h3 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Hide profile section text/image when collapsed */
+.sidebar.collapsed .profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px; /* keep a fixed height for spacing */
+}
+
+.sidebar.collapsed .profile-section h3,
+.sidebar.collapsed .profile-image {
+  display: none;
+}
+
+/* Navigation */
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation li {
+  margin: 20px 0;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navigation a:hover {
+  background-color: #5a311f;
+  color: #ffd699;
+}
+
+/* Logout Section */
+.logout-section {
+  margin-top: auto;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+/* Mobile Toggle (☰) */
+.mobile-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  background-color: #673c25;
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+/* Close Button (×) */
+.close-btn-inside {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+  z-index: 10;
+}
+
+/* Hide sidebar text in collapsed mode */
+.sidebar.collapsed .profile-section h3,
+.sidebar.collapsed .navigation a span,
+.sidebar.collapsed .logout-button span {
+  display: none;
+}

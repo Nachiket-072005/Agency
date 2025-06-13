@@ -37,112 +37,114 @@ export default function RegisterPage() {
 
   return (
     <div className="login-container">
-      <form onSubmit={handleSubmit}>
-        <header className="login-header">
-          <img src={logo} alt="Logo" className="logo" width={50} />
-          <h1>Agency Registration</h1>
-        </header>
-        <div className="form-group">
+      <div className="login-form">
+        <form onSubmit={handleSubmit}>
+          <header className="login-header">
+            <img src={logo} alt="Logo" className="logo" width={50} />
+            <h1>Agency Registration</h1>
+          </header>
           <div className="form-group">
-            <label htmlFor="agencyName">Agency Name: </label>
+            <div className="form-group">
+              <label htmlFor="agencyName">Agency Name: </label>
+              <input
+                type="text"
+                id="agencyName"
+                placeholder="Enter your agency name"
+                name="agencyName"
+                value={formData.agencyName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <label htmlFor="address">Address : </label>
+            <textarea
+              name="address"
+              id="address"
+              placeholder="Enter your agency address"
+              value={formData.address}
+              onChange={handleChange}
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="gstNo">GST No.: </label>
             <input
               type="text"
-              id="agencyName"
-              placeholder="Enter your agency name"
-              name="agencyName"
-              value={formData.agencyName}
+              id="gstNo"
+              placeholder="Enter your GST number"
+              name="gstNo"
+              value={formData.gstNo}
               onChange={handleChange}
               required
             />
           </div>
 
-          <label htmlFor="address">Address : </label>
-          <textarea
-            name="address"
-            id="address"
-            placeholder="Enter your agency address"
-            value={formData.address}
-            onChange={handleChange}
-            rows="4"
-            required
-          ></textarea>
-        </div>
+          <div className="form-group">
+            <label htmlFor="phNo">Phone Number</label>
+            <input
+              type="tel"
+              id="phNo"
+              placeholder="Enter your phone number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="gstNo">GST No.: </label>
-          <input
-            type="text"
-            id="gstNo"
-            placeholder="Enter your GST number"
-            name="gstNo"
-            value={formData.gstNo}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="image">Agency Image</label>
+            <input
+              type="file"
+              id="image"
+              name="agencyImage"
+              accept="image/*"
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="phNo">Phone Number</label>
-          <input
-            type="tel"
-            id="phNo"
-            placeholder="Enter your phone number"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="pass">Password</label>
+            <input
+              type="password"
+              id="pass"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="image">Agency Image</label>
-          <input
-            type="file"
-            id="image"
-            name="agencyImage"
-            accept="image/*"
-            onChange={handleChange}
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="conpass">Confirm Password</label>
+            <input
+              type="password"
+              id="conpass"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="pass">Password</label>
-          <input
-            type="password"
-            id="pass"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
 
-        <div className="form-group">
-          <label htmlFor="conpass">Confirm Password</label>
-          <input
-            type="password"
-            id="conpass"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button type="submit" className="submit-button">
-          Submit
-        </button>
-
-        <p style={{ textAlign: "center", marginTop: "20px" }}>
-          Already have an account?{" "}
-          <Link
-            to="/login"
-            style={{ color: "#007bff", textDecoration: "none" }}
-          >
-            Login here
-          </Link>
-        </p>
-      </form>
+          <p style={{ textAlign: "center", marginTop: "20px" }}>
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              style={{ color: "#007bff", textDecoration: "none" }}
+            >
+              Login here
+            </Link>
+          </p>
+        </form>
+      </div>
 
       <footer className="login-footer">
         <p>© 2025 Your Agency. All rights reserved.</p>
