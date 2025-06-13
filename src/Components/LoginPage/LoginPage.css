@@ -1,9 +1,35 @@
 /* Container for the whole login/register page */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../../../public/Register_Page_Bg.jpg"); /* ✅ Place this image in your public/ folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #f0f4f8, #e2ecf3);
+  background: linear-gradient(
+      to bottom right,
+      rgba(240, 244, 248, 0.8),
+      rgba(226, 236, 243, 0.8)
+    ),
+    url("../../../public/Register_Page_Bg.jpg"); /* Place your image in public/ folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
