@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function AddPackageForm({ onAdd }) {
-  const [title, setTitle] = useState('');
-  const [price, setPrice] = useState('');
-  const [duration, setDuration] = useState('');
-  const [description, setDescription] = useState('');
-  const [packageType, setPackageType] = useState('');
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
+  const [duration, setDuration] = useState("");
+  const [description, setDescription] = useState("");
+  const [packageType, setPackageType] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !price || !duration || !description || !packageType) {
-      alert('Please fill in all fields.');
+      alert("Please fill in all fields.");
       return;
     }
 
@@ -25,16 +25,16 @@ export default function AddPackageForm({ onAdd }) {
     onAdd(newPackage);
 
     // Clear form fields
-    setTitle('');
-    setPrice('');
-    setDuration('');
-    setDescription('');
-    setPackageType('');
+    setTitle("");
+    setPrice("");
+    setDuration("");
+    setDescription("");
+    setPackageType("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='FormInpput'>
+      <div className="FormInpput">
         <select
           name="packageType"
           className="package-dropdown"
@@ -78,7 +78,7 @@ export default function AddPackageForm({ onAdd }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={4}
-          style={{ resize: 'vertical' }}
+          style={{ resize: "vertical" }}
         />
         <button type="submit">Add Package</button>
       </div>

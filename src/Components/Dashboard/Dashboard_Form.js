@@ -3,20 +3,19 @@ import AddPackageForm from "./AddPackageForm";
 import PackageList from "./PackageList";
 import Stats from "./Stats";
 import { dummyBookings } from "./dummyBookings";
-import "./Dashboard.css";
+import "./Dashboard_Form.css";
 
 export default function DashboardPage() {
   const [packages, setPackages] = useState([]);
-  const [bookings, setBookings] = useState(dummyBookings);
+  const [bookings] = useState(dummyBookings);
   const [loading, setLoading] = useState(false);
 
   const [selectedType, setSelectedType] = useState("All");
-
   const [searchTerm, setSearchTerm] = useState("");
   const [sortKey, setSortKey] = useState(null);
   const [sortOrder, setSortOrder] = useState("asc");
-
   const [currentPage, setCurrentPage] = useState(1);
+
   const itemsPerPage = 5;
 
   const simulateLoading = (callback) => {
@@ -41,16 +40,14 @@ export default function DashboardPage() {
 
   const deletePackage = (index) => {
     simulateLoading(() => {
-      const newList = packages.filter((_, i) => i !== index);
-      setPackages(newList);
+      setPackages(packages.filter((_, i) => i !== index));
     });
   };
 
-  // Filter packages based on search term and selected package type
   const filteredPackages = packages.filter((pkg) => {
     const matchesSearch = (pkg.title || "")
       .toLowerCase()
-      .includes((searchTerm || "").toLowerCase());
+      .includes(searchTerm.toLowerCase());
     const matchesType = selectedType === "All" || pkg.type === selectedType;
     return matchesSearch && matchesType;
   });
@@ -82,21 +79,19 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="dashboard-container">
-      <h1>🌍 Tourixaa Admin Dashboard</h1>
-
+    <div>
       <Stats packages={packages} bookings={bookings} />
 
       <div className="controls">
         <input
+          className="search-input"
           type="text"
-          placeholder="Search packages by name..."
+          placeholder="Search packages..."
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value);
             setCurrentPage(1);
           }}
-          className="search-input"
         />
         <select
           className="filter-dropdown"

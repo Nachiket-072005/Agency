@@ -1,0 +1,236 @@
+/* General Layout */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2a7ae2;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+/* Controls Container */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.controls input,
+.controls select {
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  min-width: 220px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.controls input:focus,
+.controls select:focus {
+  border-color: #2a7ae2;
+  box-shadow: 0 0 8px rgba(42, 122, 226, 0.3);
+}
+
+/* Form Styling */
+form {
+  background: #f9fbfd;
+  border: 1px solid #ddd;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 35px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.FormInpput {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.FormInpput input,
+.FormInpput select,
+.FormInpput textarea {
+  flex: 1 1 48%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.FormInpput textarea {
+  flex: 1 1 100%;
+  resize: vertical;
+  min-height: 90px;
+}
+
+.FormInpput input:focus,
+.FormInpput select:focus,
+.FormInpput textarea:focus {
+  border-color: #2a7ae2;
+  box-shadow: 0 0 6px rgba(42, 122, 226, 0.3);
+}
+
+.FormInpput button {
+  flex: 1 1 100%;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  background: #2a7ae2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.FormInpput button:hover {
+  background: #1e5cb8;
+}
+
+/* Package Table */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.package-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.package-table th,
+.package-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.package-table th {
+  background: #f1f5f9;
+  color: #333;
+  text-align: left;
+}
+
+/* Make sure inputs inside table fit properly */
+.package-table td input,
+.package-table td select,
+.package-table td textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.package-table td textarea {
+  resize: vertical;
+}
+
+/* Action buttons */
+.package-table td.actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 6px 10px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn.edit {
+  background: #4caf50;
+  color: #fff;
+}
+
+.action-btn.edit:hover {
+  background: #3a8e41;
+}
+
+.action-btn.delete {
+  background: #e94b4b;
+  color: #fff;
+}
+
+.action-btn.delete:hover {
+  background: #c0392b;
+}
+
+.action-btn.save {
+  background: #4caf50;
+  color: #fff;
+}
+
+.action-btn.cancel {
+  background: #aaa;
+  color: #fff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 10px 16px;
+  border: none;
+  background: #2a7ae2;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pagination button:disabled {
+  background: #a5bde6;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #1e5cb8;
+}
+
+.pagination span {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .FormInpput input,
+  .FormInpput select,
+  .FormInpput textarea {
+    flex: 1 1 100%;
+  }
+}
